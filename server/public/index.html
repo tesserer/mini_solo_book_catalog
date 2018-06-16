@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="vendors/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/style.css">
     <script src="vendors/angular.min.js"></script>
     <script src="vendors/angular-route.min.js"></script>
     <script src="scripts/client.js"></script>
     <script src="scripts/controllers/home.controller.js" charset="utf-8"></script>
     <script src="scripts/controllers/add_book.controller.js" charset="utf-8"></script>
     <script src="scripts/controllers/manage_genres.controller.js" charset="utf-8"></script>
-    <script src="scripts/services.js/service.js" charset="utf-8"></script>
-    <link rel="stylesheet" href="vendors/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/style.css">
+    <script src="scripts/service/service.js" charset="utf-8"></script>
+    
     <title>Book Catalog</title>
 </head>
 <body>
@@ -22,7 +23,7 @@
     <br>
     <div ng-app="myApp">
 
-              
+              <p><a href="#!/"><h3>View Catalog</h3></a></p>
               <p><a href="#!/add_book"><h3>Add Book</h3></a></p>
               <p><a href="#!/manage_genres"><h3>Manage Genres</h3></a></p>
 

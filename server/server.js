@@ -4,13 +4,13 @@ const app = express();
 
 const bodyParser = require('body-parser');
 
+app.use(express.static('server/public'));
+
 const PORT = process.env.PORT || 5000;
 
 const bookRouter = require( './modules/routers/home.router.js')
 
 const pool = require('./modules/pool');
-
-app.use(express.static('server/public'));
 
 app.use( bodyParser.urlencoded( {extended: true} ) );
 
