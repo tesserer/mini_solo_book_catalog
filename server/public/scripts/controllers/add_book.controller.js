@@ -1,5 +1,5 @@
 myApp.controller('AddbookController', function(LibraryService){
-    console.log( 'NG AddHome' );
+    console.log( 'NG AddBook' );
     let vm = this;
   vm.bookArray = [];
   vm.newBook = [];

@@ -4,12 +4,14 @@ myApp.controller('CatalogController', function( LibraryService ) {
     vm.message = "My Catalog";
     vm.bookArray = [];
   
-    LibraryService.getBooks().then(function(response){
-      vm.bookArray = LibraryService.results;
-      console.log( 'in getBooks:', vm.bookArray );
-    });
-  
-  
+    vm.getCatalog = function(){
+      LibraryService.getBooks().then(function(response){
+        vm.bookArray = LibraryService.results;
+        console.log( 'in getBooks:', vm.bookArray );
+      });
+    }
+
+    vm.getCatalog();
   
   });
   

@@ -8,7 +8,7 @@ const pool = require( '../pool.js' );
 
 router.get( '/', (req, res) => {
   console.log( 'in GET request to DB from ROUTER' );
-  const queryText = "SELECT * FROM books";
+  const queryText = `SELECT * FROM books`;
   pool.query( queryText )
   .then( (result) => {
     console.log( `back from the database with ${result}` );
@@ -22,7 +22,7 @@ router.get( '/', (req, res) => {
 router.post( '/', (req, res) => {
    console.log('In POST');
    console.log('Req.body is:', req.body);
-   const queryText = "INSERT INTO books (title, author, year, summary) VALUES ($1,$2,$3,$4,)";
+   const queryText = `INSERT INTO books (title, author, year, summary) VALUES ($1,$2,$3,$4,)`;
    pool.query(queryText, ([req.body.title, req.body.author, req.body.year, req.body.summary]))
        .then((results) => {
            console.log('Results are', results);

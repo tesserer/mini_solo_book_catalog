@@ -1,8 +1,8 @@
 myApp.service('LibraryService', function($http) {
     let sv = this;
     console.log('LibraryService');
-
-
+    sv.results=[];
+    
 
     sv.getBooks = function() {
         return $http({
@@ -10,9 +10,11 @@ myApp.service('LibraryService', function($http) {
                 url: '/home'
             })
             .then(function(response) {
-                console.log(response.data);
+                console.log("in GET with:", response.data);
                 sv.results = response.data;
-            })
+            }).catch(function(error) {
+                console.log('Error in GET', error);
+            });
     };
 
     sv.addBooks = function(object) {
