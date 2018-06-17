@@ -14,8 +14,22 @@ router.get( '/', (req, res) => {
   })
   .catch(( error ) => {
     console.log( `ERROR getting listing: ${error}` );
-  });// end GET from books DB
+  });
 });
+
+router.get( '/manage_genres', (req, res) => {
+  console.log( 'in GET request to DB from ROUTER' );
+  const queryText = `SELECT * FROM genres`;
+  pool.query( queryText )
+  .then( (result) => {
+    console.log( 'back from the database with,', result );
+    res.send( result.rows );
+  })
+  .catch(( error ) => {
+    console.log( `ERROR getting listing: ${error}` );
+  });
+});
+
 
 router.post( '/add_book', (req, res) => {
    console.log('In addBook POST', req.body);
@@ -35,13 +49,13 @@ router.post( '/add_book', (req, res) => {
     console.log( 'In addGenre POST', req.body );
     const queryText = `INSERT INTO genres (genre) VALUES ($1);`;
     pool.query(queryText, [req.body.genre])
-    .then((results) => {
-      console.log( 'New genre is:', results );
-      res.sendStatus(201);
+      .then((results) => {
+        console.log( 'New genre is:', results );
+        res.sendStatus(201);
     })
-    .catch((err) => {
-      console.log( 'Error:', err );
-      res.sendStatus(500);
+      .catch((err) => {
+        console.log( 'Error:', err );
+        res.sendStatus(500);
     })
   });
 

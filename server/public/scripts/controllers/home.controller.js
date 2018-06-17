@@ -23,12 +23,12 @@ myApp.controller('CatalogController', function( LibraryService ) {
         vm.getCatalog();
         console.log( 'In deleteBook controller:', vm.deleteBookArray );
 
-        //logic for deleting checked books marked for deletion:
+        
 
       })
       
     }
-    // vm.booksToDelete();
+
   });
   
-  // console.log( 'In deleteBook controller:', vm.deleteBookArray );
+

@@ -1,7 +1,7 @@
 <h1>{{vm.message}}</h1>
 
         <select name="Genres">
-        <option value="">Science Fiction</option></select>
+        <option value="">ALL</option></select>
 
 
 <table class="table">
@@ -10,7 +10,7 @@
         <th>AUTHOR</th>
         <th>YEAR</th>
         <th>SUMMARY</th>
-        <th>GENRE</th>
+        <th>REMOVE BOOK?</th>
     </thead>
 
     <tbody>
@@ -19,8 +19,6 @@
             <td>{{book.author}}</td>
             <td>{{book.year}}</td>
             <td>{{book.summary}}</td>
-            <td></td>
-            
             <td><button ng-click="vm.deleteBook( book.id )">Remove Book</button></td>
         </tr>
     </tbody>

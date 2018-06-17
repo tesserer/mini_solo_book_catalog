@@ -1,19 +1,26 @@
 <!-- USE PUT TO UPDATE CURRENT GENRES -->
 
-<h1>Manage Genres</h1>
+<h1>Manage Genres</h1><br>
 <p><h2>Add a Genre</h2></p>
 
 <p><input type="text" placeholder="New Genre" ng-model="vm.newgenreIn"></p>
 
 <button class="btn btn-success" ng-click="vm.addGenre()">SUBMIT</button>
 
+<br>
+<br>
+<br>
+
 <table class="table">
     <thead>
         <th>GENRES</th>
+        <th>REMOVE GENRE?</th>
     </thead>
     <tbody>
-        <tr ng-repeat="genre in vm.genreArray"></tr>
-        <td>{{genre.genre}}</td>
+        <tr ng-repeat="genre in vm.genreArray">
+            <td>{{genre.genre}}</td>
+            <td><button ng-click="vm.deleteGenre( genre.id )">Remove Genre</button></td>
+        </tr>
     </tbody>
 </table>
 

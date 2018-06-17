@@ -10,10 +10,10 @@ myApp.service('LibraryService', function($http) {
                 url: '/home'
             })
             .then(function(response) {
-                console.log("in GET with:", response.data);
+                console.log("in books GET with:", response.data);
                 sv.results = response.data;
             }).catch(function(error) {
-                console.log('Error in GET', error);
+                console.log('Error in books GET', error);
             });
     };
 
@@ -29,6 +29,21 @@ myApp.service('LibraryService', function($http) {
             console.log('Error creating new book:', error);
         });
     };
+
+    sv.getGenre = function() {
+        return $http({
+                method: 'GET',
+                url: '/home/manage_genres'
+            })
+            .then(function(response) {
+                console.log("in genre GET with:", response.data);
+                sv.results = response.data;
+            }).catch(function(error) {
+                console.log('Error in genre GET', error);
+            });
+    };
+
+
 
     sv.addGenre = function(object) {
         console.log( 'in service addGenre' );
@@ -47,10 +62,8 @@ myApp.service('LibraryService', function($http) {
 
 
     sv.deleteBook = function( book ){
-        // let bookToRemove = sv.results[index];
         return $http({
             method: 'DELETE',
-            //fix mongoose syntax for url
             url: `/home/` + book, 
         }).then(function(response){
             sv.getBooks();
