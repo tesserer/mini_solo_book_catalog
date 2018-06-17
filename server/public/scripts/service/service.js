@@ -17,11 +17,11 @@ myApp.service('LibraryService', function($http) {
             });
     };
 
-    sv.addBooks = function(object) {
+    sv.addBook = function(object) {
         console.log('in service addBooks');
         return $http({
             method: 'POST',
-            url: '/add_book',
+            url: '/home/add_book',
             data: object
         }).then(function(response) {
             console.log('New book created:', response);

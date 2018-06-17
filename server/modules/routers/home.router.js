@@ -19,10 +19,10 @@ router.get( '/', (req, res) => {
   });// end GET from books DB
 });
 
-router.post( '/', (req, res) => {
+router.post( '/add_book', (req, res) => {
    console.log('In POST');
    console.log('Req.body is:', req.body);
-   const queryText = `INSERT INTO books (title, author, year, summary) VALUES ($1,$2,$3,$4,)`;
+   const queryText = `INSERT INTO books (title, author, year, summary) VALUES ($1,$2,$3,$4)`;
    pool.query(queryText, ([req.body.title, req.body.author, req.body.year, req.body.summary]))
        .then((results) => {
            console.log('Results are', results);
@@ -33,6 +33,21 @@ router.post( '/', (req, res) => {
            res.sendStatus(500);
        })
 });
+
+router.delete('/', (req, res) => {
+  //req.query._id is mongo, right?? Might be just .id
+  let bookID = req.query.id;
+  console.log('id for delete request is', bookID);
+  Task.findByIdAndRemove(req.query.id)
+  .then(() => {
+    console.log( 'Book deleted:', req.query );
+    res.sendStatus(200);
+  }).catch(error) => {
+    console.log( 'Error deleting book', error );
+    res.sendStatus(500);
+  }
+  
+})
 
 
 module.exports = router;
