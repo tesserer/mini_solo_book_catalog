@@ -60,7 +60,6 @@ router.post( '/add_book', (req, res) => {
   });
 
 
-
   router.delete('/:id', (req, res) => {
     const bookId = req.params.id;
     console.log( 'In DELETE to remove book ID:', bookId );
@@ -72,7 +71,24 @@ router.post( '/add_book', (req, res) => {
       console.log( 'Successful delete of book', results );
       res.sendStatus(200);
     }).catch((err) => {
-      console.log( 'Error deleting song', err );
+      console.log( 'Error deleting book', err );
+      res.sendStatus(500);
+    })  
+  });
+
+
+  router.delete('/manage_genres/:id', (req, res) => {
+    const genreId = req.params.id;
+    console.log( 'In DELETE to remove genre ID:', genreId );
+
+    const queryText = 'DELETE FROM "genres" WHERE id=$1';
+
+    pool.query(queryText, [genreId] )
+    .then((results) => {
+      console.log( 'Successful delete of genre', results );
+      res.sendStatus(200);
+    }).catch((err) => {
+      console.log( 'Error deleting genre', err );
       res.sendStatus(500);
     })  
   });

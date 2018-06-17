@@ -3,6 +3,7 @@ myApp.controller('CatalogController', function( LibraryService ) {
     let vm = this;
     vm.message = "My Catalog";
     vm.bookArray = [];
+    vm.genreArray = [];
     vm.deleteBookArray =[];
   
     vm.getCatalog = function(){
@@ -15,12 +16,25 @@ myApp.controller('CatalogController', function( LibraryService ) {
 
     vm.getCatalog();
 
+    vm.getallGenre = function(){
+      LibraryService.getGenre()
+      .then(function(){
+        vm.genreArray = LibraryService.results;
+        console.log( 'in getallGenre controller:', vm.newGenre );
+
+      })
+    }
+
+    vm.getallGenre();
+
+
     vm.deleteBook = function( book ){
       console.log( 'Deleting book:', book );
       
       LibraryService.deleteBook( book )
       .then(function(response){
         vm.getCatalog();
+        //add checkboxes for deletion as stretch
         console.log( 'In deleteBook controller:', vm.deleteBookArray );
 
         

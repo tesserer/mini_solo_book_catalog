@@ -1,7 +1,11 @@
 <h1>{{vm.message}}</h1>
-
-        <select name="Genres">
-        <option value="">ALL</option></select>
+<h3>Genres:</h3>
+<!-- Add sort function to each genre -->
+<!-- EACH ITERATION CREATES A NEW DROPDOWN FIXFIXFIX -->
+    <select ng-repeat="genre in vm.genreArray">
+        <option value="">ALL</option>
+        <option value="">{{genre.genre}}</option>
+    </select>
 
 
 <table class="table">

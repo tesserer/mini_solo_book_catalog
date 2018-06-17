@@ -17,19 +17,6 @@ myApp.service('LibraryService', function($http) {
             });
     };
 
-    sv.addBook = function(object) {
-        console.log('in service addBooks');
-        return $http({
-            method: 'POST',
-            url: '/home/add_book',
-            data: object
-        }).then(function(response) {
-            console.log('New book created:', response);
-        }).catch(function(error) {
-            console.log('Error creating new book:', error);
-        });
-    };
-
     sv.getGenre = function() {
         return $http({
                 method: 'GET',
@@ -43,6 +30,19 @@ myApp.service('LibraryService', function($http) {
             });
     };
 
+
+    sv.addBook = function(object) {
+        console.log('in service addBooks');
+        return $http({
+            method: 'POST',
+            url: '/home/add_book',
+            data: object
+        }).then(function(response) {
+            console.log('New book created:', response);
+        }).catch(function(error) {
+            console.log('Error creating new book:', error);
+        });
+    };
 
 
     sv.addGenre = function(object) {
@@ -59,8 +59,6 @@ myApp.service('LibraryService', function($http) {
     };
 
 
-
-
     sv.deleteBook = function( book ){
         return $http({
             method: 'DELETE',
@@ -73,7 +71,22 @@ myApp.service('LibraryService', function($http) {
             
         })
     }
-    //does getBooks need to run twice?
+
+    sv.deleteGenre = function( genre ){
+        return $http({
+            method: 'DELETE',
+            url: `/home/manage_genres/` + genre, 
+        }).then(function(response){
+            sv.getGenre();
+            console.log( 'Deleted', genre );
+        }).catch(function(error){
+            console.log( 'Error deleting genre', error );
+            
+        })
+    }
+
+
     sv.getBooks();
+    sv.getGenre();
 
 });

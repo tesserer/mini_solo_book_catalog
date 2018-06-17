@@ -24,6 +24,6 @@ myApp.controller('AddbookController', function(LibraryService){
     vm.getIt();
 
   });
-
+  vm.getIt();
 };
 });
