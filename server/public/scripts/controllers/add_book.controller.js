@@ -18,10 +18,11 @@ myApp.controller('AddbookController', function(LibraryService){
     summary: vm.summaryIn,
     genre: vm.genreIn
   };
-  
   LibraryService.addBook ( vm.objectToSend )
   .then(function(response) {
   
+    vm.getIt();
+
   });
 
 };

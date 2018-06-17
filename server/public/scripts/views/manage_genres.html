@@ -1,2 +1,19 @@
 <!-- USE PUT TO UPDATE CURRENT GENRES -->
 
+<h1>Manage Genres</h1>
+<p><h2>Add a Genre</h2></p>
+
+<p><input type="text" placeholder="New Genre" ng-model="vm.newgenreIn"></p>
+
+<button class="btn btn-success" ng-click="vm.addGenre()">SUBMIT</button>
+
+<table class="table">
+    <thead>
+        <th>GENRES</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="genre in vm.genreArray"></tr>
+        <td>{{genre.genre}}</td>
+    </tbody>
+</table>
+

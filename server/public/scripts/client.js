@@ -11,7 +11,7 @@ myApp.config(function($routeProvider) {
       controller: 'AddbookController as vm'
   }).when('/manage_genres', {
       templateUrl: 'scripts/views/manage_genres.html',
-      controller: 'ManagegenresController as vm'
+      controller: 'AddgenreController as vm'
   }).otherwise({
       template: '<h2>404 Page Not Found</h2>'
   });

@@ -12,7 +12,7 @@ const bookRouter = require( './modules/routers/home.router.js')
 
 const pool = require('./modules/pool');
 
-app.use( bodyParser.urlencoded( {extended: true} ) );
+// app.use( bodyParser.urlencoded( {extended: true} ) );
 
 app.use( bodyParser.json() );
 
