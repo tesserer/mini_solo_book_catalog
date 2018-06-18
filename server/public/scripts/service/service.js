@@ -88,5 +88,6 @@ myApp.service('LibraryService', function($http) {
 
     sv.getBooks();
     sv.getGenre();
+    sv.addGenre();
 
 });

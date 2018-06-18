@@ -1,4 +1,4 @@
-<H2>Add to library</H2>
+<h1>Add to Library</h1>
 
 <p><input type="text" placeholder="Title" ng-model="vm.titleIn"></p>
 <p><input type="text" placeholder="Author" ng-model="vm.authorIn"></p>
@@ -8,8 +8,10 @@
 
 <button class="btn btn-success" ng-click="vm.addBook()">SUBMIT</button>
 
-<!-- USE POST TO COLLECT INPUTS FOR NEW BOOKS -->
 
 
-
-
+<!-- COULD NOT GET GENRE DROPDOWN MENU TO POPULATE, BUT THE SAME DROPDOWN FILLS ON HOME.HTML -->
+<!-- <p><select>
+        <option value="">Genres</option>
+        <option ng-repeat="genre in vm.genreArray" value="{genre.id}}">{{genre.genre}}</option>
+    </select></p> -->

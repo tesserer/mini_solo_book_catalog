@@ -6,6 +6,7 @@ const pool = require( '../pool.js' );
 
 router.get( '/', (req, res) => {
   console.log( 'in GET request to DB from ROUTER' );
+  //ADD GENRE FUNCTIONALITY TO ADD BOOKS DROPDOWN AND POST WITH APPROPRIATE GENRE
   const queryText = `SELECT * FROM books`;
   pool.query( queryText )
   .then( (result) => {

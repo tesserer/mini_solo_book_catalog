@@ -1,8 +1,9 @@
-myApp.controller('AddbookController', function(LibraryService){
+myApp.controller( 'AddbookController', function(LibraryService){
     console.log( 'NG AddBook' );
     let vm = this;
   vm.bookArray = [];
   vm.newBook = [];
+  vm.genreArray = [];
   vm.getIt = function(){
     LibraryService.getBooks().then(function(){
       vm.newBooks = LibraryService.results;
@@ -15,15 +16,22 @@ myApp.controller('AddbookController', function(LibraryService){
     title: vm.titleIn,
     author: vm.authorIn,
     year: vm.yearIn,
-    summary: vm.summaryIn,
-    genre: vm.genreIn
+    summary: vm.summaryIn
   };
   LibraryService.addBook ( vm.objectToSend )
   .then(function(response) {
-  
     vm.getIt();
-
   });
   vm.getIt();
+
+  vm.getallGenre = function(){
+    LibraryService.getGenre()
+    .then(function(){
+      vm.genreArray = LibraryService.results;
+      console.log( 'in getallGenre controller:', vm.genreArray );
+
+    })
+  }
+  vm.getallGenre();
 };
 });

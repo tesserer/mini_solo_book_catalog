@@ -20,7 +20,7 @@ myApp.controller('CatalogController', function( LibraryService ) {
       LibraryService.getGenre()
       .then(function(){
         vm.genreArray = LibraryService.results;
-        console.log( 'in getallGenre controller:', vm.newGenre );
+        console.log( 'in getallGenre controller:', vm.genreArray );
 
       })
     }
